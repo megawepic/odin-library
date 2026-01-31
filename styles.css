@@ -70,6 +70,35 @@ button:hover{
     background-color: #C9B29B;
 }
 
+form{
+    display: flex;
+    flex-direction: column;
+    gap:24px;
+}
+
+.book-dialog label {
+  display: flex;
+  align-items:start;
+  flex-direction: column;
+  gap: 0.4rem; /* space between text and input */
+}
+
+.check-read{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+#read-status{
+    height: 2rem;
+}
+
+input {
+    font-size: 1.5rem;
+    padding: 0.5rem;
+}
+
 dialog {
   position: fixed;
   top: 0;

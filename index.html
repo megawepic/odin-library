@@ -14,12 +14,30 @@
             <button class="add-book" id="add-book"><img src="Images/plus-thick.svg" alt="plus for add book"></button>
 
             <dialog class="book-dialog" id="book-dialog">
-                <P>Hello</P>
-                <form>
 
+                <form method="dialog">
+                    <label id="book-name">
+                        Book title:
+                        <input type="text" required>
+                    </label>
+
+                    <label id="author-name">
+                        Author:
+                        <input type="text" required>
+                    </label>
+
+                    <label id="page-count">
+                        pages:
+                        <input type="text" requried>
+                    </label>
+
+                    <label class="check-read">
+                        <input type="checkbox" id="read-status">
+                        Read
+                    </label>
                     <div>
-                        <button value="cancel" formmethod="dialog">close</button>
-                        <button id="confirmBtn" value="default">Add</button>
+                        <button id="close-btn" value="cancel">close</button>
+                        <button id="confirm-btn" value="default">Add</button>
                     </div>
                 </form>
                 

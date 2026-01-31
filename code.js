@@ -20,7 +20,8 @@ addBookToLibrary(book2)
 
 function displayBook(myLibrary){
     const bookcontainer = document.getElementById("book-container")
-
+    bookcontainer.innerHTML = "";
+    
     myLibrary.forEach((book) => {
     const card = document.createElement("div")
     card.classList.add("book-card")
@@ -41,7 +42,20 @@ function displayBook(myLibrary){
 
 const addBook = document.getElementById("add-book")
 const bookDialog = document.getElementById("book-dialog")
+const confirmBtn = document.getElementById("confirm-btn")
+const closeBtn = document.getElementById("close-btn")
 
 addBook.addEventListener("click", () =>{
     bookDialog.showModal()
+})
+
+closeBtn.addEventListener("click", () =>{
+    bookDialog.close()
+})
+
+confirmBtn.addEventListener("click", (event) =>{
+    event.preventDefault()
+    const book1 = new Book()
+    displayBook(myLibrary)
+    bookDialog.close()
 })
