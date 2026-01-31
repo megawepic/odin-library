@@ -29,10 +29,10 @@ body{
 }
 
 .add-book > img{
-    width: 2rem;
+    height: 2.5rem;
 }
 
-.add-book:active{
+button:active{
     transform: scale(0.9);
 }
 
@@ -80,7 +80,7 @@ form{
   display: flex;
   align-items:start;
   flex-direction: column;
-  gap: 0.4rem; /* space between text and input */
+  gap: 0.4rem;
 }
 
 .check-read{
@@ -97,6 +97,26 @@ form{
 input {
     font-size: 1.5rem;
     padding: 0.5rem;
+}
+
+.dialog-btns{
+    display: flex;
+    gap: 24px;
+    justify-content: end;
+}
+
+#close-btn{
+    background: none;
+    border: none;
+}
+
+#close-btn img, #confirm-btn img{
+    height: 3rem;
+}
+
+#confirm-btn{
+    background: none;
+    border: none;
 }
 
 dialog {

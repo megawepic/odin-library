@@ -15,29 +15,29 @@
 
             <dialog class="book-dialog" id="book-dialog">
 
-                <form method="dialog">
+                <form>
                     <label id="book-name">
                         Book title:
-                        <input type="text" required>
+                        <input type="text" name="title" required>
                     </label>
 
                     <label id="author-name">
                         Author:
-                        <input type="text" required>
+                        <input type="text" name="author" required>
                     </label>
 
                     <label id="page-count">
                         pages:
-                        <input type="text" requried>
+                        <input type="number" name ="pages" required>
                     </label>
 
                     <label class="check-read">
                         <input type="checkbox" id="read-status">
                         Read
                     </label>
-                    <div>
-                        <button id="close-btn" value="cancel">close</button>
-                        <button id="confirm-btn" value="default">Add</button>
+                    <div class="dialog-btns">
+                        <button id="close-btn" value="cancel"><img src="Images/cancel.svg" alt="cancel button logo"></button>
+                        <button id="confirm-btn" value="default" type="submit"><img src="Images/book-check.svg" alt="add book logo"></button>
                     </div>
                 </form>
                 
