@@ -22,6 +22,24 @@ body{
     font-size: 2rem;
 }
 
+.add-book{
+    background: none;
+    border: none;
+    margin-right: 1rem;
+}
+
+.add-book > img{
+    width: 2rem;
+}
+
+.add-book:active{
+    transform: scale(0.9);
+}
+
+button:hover{
+    cursor: pointer;
+}
+
 .footer{
     display: flex;
     justify-content: center;
@@ -34,13 +52,48 @@ body{
     height: 2rem;
 }
 
-.book-container{
+#book-container{
     display: grid;
+    grid-template-columns: repeat(auto-fit, 300px);
     grid-template-rows: auto;
+    gap: 12px;
+    padding: 24px;
 }
 
 .book-card{
     display: flex;
     flex-direction: column;
     gap: 16px;
+    padding: 24px;
+    align-self: start;
+    border: 1px solid black;
+    background-color: #C9B29B;
+}
+
+dialog {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: auto;
+
+  width: 320px;
+  height: 100%;
+
+  margin: 0;
+  border: none;
+  padding: 2.5rem;
+
+  background: #C9B29B;
+  box-shadow: -4px 0 12px rgba(0,0,0,0.25);
+
+  transform: translateX(100%);
+  transition: transform 0.3s ease-out;
+}
+
+dialog[open] {
+  transform: translateX(0);
+}
+
+dialog::backdrop {
+  background: rgba(0,0,0,0.4);
 }

@@ -10,16 +10,28 @@
 <body>
     <div class="main-container">
         <div class="header">
-            <div>mgp's library</div>
-            <button class="add-book">Add Book</button>
+            <div>MGP's library</div>
+            <button class="add-book" id="add-book"><img src="Images/plus-thick.svg" alt="plus for add book"></button>
+
+            <dialog class="book-dialog" id="book-dialog">
+                <P>Hello</P>
+                <form>
+
+                    <div>
+                        <button value="cancel" formmethod="dialog">close</button>
+                        <button id="confirmBtn" value="default">Add</button>
+                    </div>
+                </form>
+                
+            </dialog>
         </div>
 
         <div id="book-container">
-            <div class="book"></div>
+
         </div>
 
         <div class="footer">
-            <p>@mgp 2026</p>
+            <p>@MGP 2026</p>
         </div>
     </div>
 </body>

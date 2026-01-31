@@ -38,3 +38,10 @@ function displayBook(myLibrary){
     bookcontainer.appendChild(card)
     })
 }
+
+const addBook = document.getElementById("add-book")
+const bookDialog = document.getElementById("book-dialog")
+
+addBook.addEventListener("click", () =>{
+    bookDialog.showModal()
+})
