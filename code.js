@@ -12,12 +12,6 @@ function addBookToLibrary(book) {
     myLibrary.push(book)
 }
 
-const book1 = new Book("ABC", "darren", 123, true)
-const book2 = new Book("CDE", "yap", 456, false)
-
-addBookToLibrary(book1)
-addBookToLibrary(book2)
-
 function displayBook(myLibrary){
     const bookcontainer = document.getElementById("book-container")
     bookcontainer.innerHTML = "";
@@ -34,8 +28,50 @@ function displayBook(myLibrary){
 
     const pages = document.createElement("p")
     pages.textContent = "Pages: " + book.pages
+    
 
-    card.append(title, author, pages)
+    const read = document.createElement("label")
+    read.className = "read"
+    const readStatus = document.createElement("input")
+    const readP = document.createElement("p")
+    readP.textContent = "Read"
+    readStatus.type = 'checkbox'
+    readStatus.checked = book.read
+    read.appendChild(readP)
+    read.appendChild(readStatus)
+    
+    const deleteBtn = document.createElement("button")
+    const trashImg = document.createElement("img")
+    trashImg.className = "delete-btn"
+    trashImg.src = "Images/trash-can-outline.svg"
+    trashImg.alt = "trash image for delete button"
+
+    deleteBtn.appendChild(trashImg)
+    deleteBtn.addEventListener("click", () =>{
+        const index = myLibrary.findIndex(b => b.id === book.id)
+        myLibrary.splice(index, 1)
+        displayBook(myLibrary)
+    })
+
+    const editBtn = document.createElement("button")
+    const editImg = document.createElement("img")
+    editImg.className = "edit-btn"
+    editImg.src = "Images/book-edit-outline.svg"
+    editImg.alt = "pencil and paper image for edit button"
+
+    editBtn.appendChild(editImg)
+    editBtn.addEventListener("click", () =>{
+        bookDialog.showModal()
+        titleInput.value = book.title
+        
+    })
+
+    const cardAction = document.createElement("div")
+    cardAction.className = "card-action"
+    cardAction.appendChild(editBtn)
+    cardAction.appendChild(deleteBtn)
+
+    card.append(title, author, pages, read, cardAction)
     bookcontainer.appendChild(card)
     })
 }
@@ -58,24 +94,6 @@ const titleInput = document.querySelector("#book-name input");
 const authorInput = document.querySelector("#author-name input");
 const pagesInput = document.querySelector("#page-count input");
 const readCheckbox = document.querySelector("#read-status");
-
-titleInput.addEventListener("input", () => {
-  titleInput.setCustomValidity(
-    titleInput.value.trim() === "" ? "Book title is required" : ""
-  );
-});
-
-authorInput.addEventListener("input", () => {
-  authorInput.setCustomValidity(
-    authorInput.value.trim() === "" ? "Author's name is required" : ""
-  );
-});
-
-pagesInput.addEventListener("input", () => {
-  pagesInput.setCustomValidity(
-    pagesInput.value.trim() === "" ? "Number of pages is required" : ""
-  );
-});
 
 confirmBtn.addEventListener("click", (event) =>{
 
