@@ -62,8 +62,12 @@ function displayBook(myLibrary){
     editBtn.appendChild(editImg)
     editBtn.addEventListener("click", () =>{
         bookDialog.showModal()
+        currentBook = book
+        editing = true
         titleInput.value = book.title
-        
+        authorInput.value = book.author
+        pagesInput.value = book.pages
+        readCheckbox.checked = book.read
     })
 
     const cardAction = document.createElement("div")
@@ -81,12 +85,15 @@ const bookDialog = document.getElementById("book-dialog")
 const confirmBtn = document.getElementById("confirm-btn")
 const closeBtn = document.getElementById("close-btn")
 const form = document.querySelector("#book-dialog form")
+let editing = false
+let currentBook = null
 
 addBook.addEventListener("click", () =>{
     bookDialog.showModal()
 })
 
 closeBtn.addEventListener("click", () =>{
+    form.reset()
     bookDialog.close()
 })
 
@@ -103,11 +110,23 @@ confirmBtn.addEventListener("click", (event) =>{
         form.reportValidity();
         return;
     }
+    if (editing === true){
+         
+        currentBook.title = titleInput.value
+        currentBook.author = authorInput.value
+        currentBook.pages = pagesInput.value
+        currentBook.read = readCheckbox.checked
 
-    const book1 = new Book(titleInput.value, authorInput.value, pagesInput.value, readCheckbox.checked)
-    addBookToLibrary(book1)
+        displayBook(myLibrary)
+        form.reset()
+        editing = false
+        bookDialog.close()
+    } else{
+        const book1 = new Book(titleInput.value, authorInput.value, pagesInput.value, readCheckbox.checked)
+        addBookToLibrary(book1)
 
-    displayBook(myLibrary)
-    form.reset()
-    bookDialog.close()
+        displayBook(myLibrary)
+        form.reset()
+        bookDialog.close()
+    }
 })
